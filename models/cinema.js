@@ -35,6 +35,12 @@ Cinema.prototype.findFilmByTitleFilter = (film_list,film_title) => {
     film.title === film_title)
   return filmReturn
 }
+//new method
+Cinema.prototype.findFilmByTitleFind = (film_list,film_title) => {
+  const filmReturn = film_list.find(film => 
+    film.title === film_title)
+  return filmReturn
+}
 
 Cinema.prototype.filterFilmsByGenre = (film_list,film_genre) => {
   const filmReturn = film_list.filter(film => 
@@ -61,18 +67,20 @@ Cinema.prototype.isFilmInYear = (film_list,year) => {
     return false
   }
 }
+//new method
+Cinema.prototype.isFilmInYearSome = (film_list,year) => {
+  const filmIs = film_list.some(film => film.year === year)
+  return filmIs
+}
+
+
+//corrected 
+//we had a variable to return the result, that was removed and we can return directly
 
 Cinema.prototype.filmLenLeast = (film_list,len) => {
-
-  const filmArray = film_list.map((film) => {
+  return film_list.every((film) => {
     return film.length >= len
   })
-  
-  if (filmArray.includes(true)) {
-    return true
-  } else {
-    return false
-  }
 
 }
 
@@ -80,10 +88,3 @@ module.exports = Cinema;
 
 
 
-// const multiplyByTwo = (numbers) => {
-//   const result = []
-
-//   numbers.forEach((number) => { 
-//       const multiNum = number * 2 
-//       result.push(multiNum)})
-// }

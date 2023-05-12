@@ -41,6 +41,13 @@ describe('Cinema', function () {
     assert.deepStrictEqual(actual,expected)
   });
 
+  // new test
+  it('should be able to find a film by title', function() {
+    const actual = cinema.findFilmByTitleFind(cinema.films,'Moonlight')
+    const expected = moonlight
+    assert.deepStrictEqual(actual,expected)
+  });
+
   it('should be able to filter films by genre', function() {
     const actual = cinema.filterFilmsByGenre(cinema.films,'drama')
     const expected = [moonlight,trainspotting]
@@ -58,16 +65,26 @@ describe('Cinema', function () {
     const expected = true
     assert.strictEqual(actual,expected)
   });
+
+  //new test
+  it('should be able to confirm *at least one* film is from a specified year - true case - 1/2',function() {
+    const actual = cinema.isFilmInYearSome(cinema.films,2016)
+    const expected = true
+    assert.strictEqual(actual,expected)
+  });
+
   it('should be able to confirm *none of* the films are from a specified year - false case - 2/2',function() {
     const actual = cinema.isFilmInYear(cinema.films,2015)
     const expected = false
     assert.strictEqual(actual,expected)
   });
+
   it('should be able to confirm whether *all* films are *at least* a specified length (true / false) 1/2',function() {
     const actual = cinema.filmLenLeast(cinema.films,90)
     const expected = true
     assert.strictEqual(actual,expected)
   });
+  
   it('should be able to confirm whether *all* films are *at least* a specified length (true / false) 2/2',function() {
     const actual = cinema.filmLenLeast(cinema.films,100)
     const expected = false
