@@ -59,6 +59,12 @@ Cinema.prototype.getTotalRuntime= (film_list) => {
   return totalRuntime
 }
 
+Cinema.prototype.getTotalRunTimeNEW = () => {
+  return this.films.reduce((total,filmLen)=> {
+    return total += film.length;
+  })
+}
+
 Cinema.prototype.isFilmInYear = (film_list,year) => {
   const filmIs = film_list.filter(film => film.year === year)
   if (filmIs.length > 0) {
