@@ -48,9 +48,19 @@ Cinema.prototype.filterFilmsByGenre = (film_list,film_genre) => {
   return filmReturn
 }
 
-Cinema.prototype.getTotalRuntime= (film_list) => {
+// Cinema.prototype.getTotalRuntime= (film_list) => {
+//   const allLen = []
+//   for (film of film_list){
+//     allLen.push(film.length)
+//   }
+//   const totalRuntime = allLen.reduce((previousValue,currentValue) => {
+//     return previousValue + currentValue
+//   })
+//   return totalRuntime
+// }
+Cinema.prototype.getTotalRuntime= () => {
   const allLen = []
-  for (film of film_list){
+  for (let film of this.films){
     allLen.push(film.length)
   }
   const totalRuntime = allLen.reduce((previousValue,currentValue) => {
@@ -98,6 +108,7 @@ Cinema.prototype.filmLenAtLeast = (film_list,len) => {
 //while we made arrow functions for everything
 
 //also we are using film_list, when we could simply use this.films
+//when we are using arrow functions and not function() we can't use this.films or this.propertyName
 
 module.exports = Cinema;
 
