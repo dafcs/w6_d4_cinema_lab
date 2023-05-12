@@ -58,12 +58,12 @@ Cinema.prototype.getTotalRuntime= (film_list) => {
   })
   return totalRuntime
 }
-
-Cinema.prototype.getTotalRunTimeNEW = () => {
-  return this.films.reduce((total,filmLen)=> {
+//new method
+Cinema.prototype.getTotalRunTimeNEW = function () {
+  return this.films.reduce((total,film)=> {
     return total += film.length;
-  })
-}
+  },0);
+};
 
 Cinema.prototype.isFilmInYear = (film_list,year) => {
   const filmIs = film_list.filter(film => film.year === year)
@@ -83,12 +83,21 @@ Cinema.prototype.isFilmInYearSome = (film_list,year) => {
 //corrected 
 //we had a variable to return the result, that was removed and we can return directly
 
-Cinema.prototype.filmLenLeast = (film_list,len) => {
+Cinema.prototype.filmLenAtLeast = (film_list,len) => {
   return film_list.every((film) => {
     return film.length >= len
   })
 
 }
+
+//other note - in the solution they are creating functions like:
+
+//cinema.prototype.functionName = function() {
+//}
+
+//while we made arrow functions for everything
+
+//also we are using film_list, when we could simply use this.films
 
 module.exports = Cinema;
 

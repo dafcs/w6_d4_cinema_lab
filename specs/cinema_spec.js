@@ -59,6 +59,12 @@ describe('Cinema', function () {
     const expected = 622
     assert.strictEqual(actual,expected)
   });
+  //new test
+  it('should be able to calculate total running time of all films',function() {
+    const actual = cinema.getTotalRunTimeNEW()
+    const expected = 622
+    assert.strictEqual(actual,expected)
+  });
 
   it('should be able to confirm *at least one* film is from a specified year - true case - 1/2',function() {
     const actual = cinema.isFilmInYear(cinema.films,2016)
@@ -80,13 +86,13 @@ describe('Cinema', function () {
   });
 
   it('should be able to confirm whether *all* films are *at least* a specified length (true / false) 1/2',function() {
-    const actual = cinema.filmLenLeast(cinema.films,90)
+    const actual = cinema.filmLenAtLeast(cinema.films,90)
     const expected = true
     assert.strictEqual(actual,expected)
   });
-  
+
   it('should be able to confirm whether *all* films are *at least* a specified length (true / false) 2/2',function() {
-    const actual = cinema.filmLenLeast(cinema.films,100)
+    const actual = cinema.filmLenAtLeast(cinema.films,100)
     const expected = false
     assert.strictEqual(actual,expected)
   });
